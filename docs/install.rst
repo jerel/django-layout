@@ -30,7 +30,7 @@ Installing the Project
 Install the requirements and the project source::
 
 	cd path/to/your/{{ project_name }}/repository
-    pip install -r requirements.pip
+    pip install -r requirements/dev.pip
     pip install -e .
 
 
