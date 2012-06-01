@@ -48,6 +48,7 @@ PROJECT_DIR = os.path.dirname(os.path.realpath(project_module.__file__))
 
 PYTHON_BIN = os.path.dirname(sys.executable)
 ve_path = os.path.dirname(os.path.dirname(os.path.dirname(PROJECT_DIR)))
+
 # Assume that the presence of 'activate_this.py' in the python bin/
 # directory means that we're running in a virtual environment.
 if os.path.exists(os.path.join(PYTHON_BIN, 'activate_this.py')):
@@ -85,6 +86,10 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'static'),
 )
 
+STATICFILES_FINDERS += (
+    'compressor.finders.CompressorFinder',
+)
+
 #============================================================================
 # Templates
 #============================================================================
@@ -114,6 +119,18 @@ AUTHENTICATION_BACKENDS += (
 # Miscellaneous project settings
 #============================================================================
 
+
 #============================================================================
 # Third party app settings
 #============================================================================
+
+# Compressor Settings
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_PRECOMPILERS = (
+    ('text/x-sass', 'sass {infile} {outfile}'),
+)
+COMPRESS_CSS_FILTERS = (
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+)
+COMPRESS_OFFLINE = True
