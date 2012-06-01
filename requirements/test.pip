@@ -1,5 +1,3 @@
 -r base.pip
 
-Fabric
-docutils
 nose==1.1.2
