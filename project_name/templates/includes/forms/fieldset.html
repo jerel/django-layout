@@ -1,0 +1,6 @@
+{{ form.non_field_errors }}
+<ol>
+	{% for field in form %}
+		{% include "includes/forms/field.html" %}
+	{% endfor %}
+</ol>

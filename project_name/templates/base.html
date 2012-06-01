@@ -1,17 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html>
+{% load compress i18n %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{% block head_title %}{% endblock %}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{% block full-title %}{% block title %}{% endblock %} &ndash; {{ project_name }}{% endblock %}</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" href="{{ STATIC_URL }}assets/img/core/apple-touch-icon.png">
+	<link rel="shortcut icon" href="{{ STATIC_URL }}/assets/img/core/favicon.png">
+
+	{% block stylesheets %}
+		{% compress css %}
+			<link rel="stylesheet" href="{{ STATIC_URL }}assets/css/base.sass" type="text/x-sass" />
+		{% endcompress %}
+	{% endblock %}
+
+	{% block extra-stylesheets %}{% endblock %}
+	{% block extra-head %}{% endblock %}
 </head>
-<body>
 
-<div id="container">
-    {% block content %}
-    {% endblock %}
-</div>
+<body class="{% block body-class %}{% endblock %}" onload="{% block body-onload %}{% endblock %}">
+	<header id="header">
+		{% block header %}
+		<h1><a href="/">{{ project_name }}</a></h1>
+		<nav>
+			<ul>
+				<li><a href="#">Navigation</a></li>
+			</ul>
+		</nav>
+		{% endblock %}
+	</header>
 
+	{% block messages %}
+		{% include "includes/messages/messages_list.html" %}
+	{% endblock %}
+
+	<div id="content">
+		{% block content %}{% endblock %}
+	</div>
+
+	<footer id="footer">
+		<p>Copyright &copy; {% now 'Y' %}.</p>
+	</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+{% block extra_js %}{% endblock %}
 </body>
 </html>
