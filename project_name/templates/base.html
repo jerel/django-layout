@@ -1,4 +1,4 @@
-{% load compress i18n %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,19 +8,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="{{ STATIC_URL }}assets/img/core/apple-touch-icon.png">
-	<link rel="shortcut icon" href="{{ STATIC_URL }}/assets/img/core/favicon.png">
+	<link rel="shortcut icon" href="{{ STATIC_URL }}assets/img/core/favicon.png">
 
-	{% block stylesheets %}
-		{% compress css %}
-			<link rel="stylesheet" href="{{ STATIC_URL }}assets/css/base.sass" type="text/x-sass" />
-		{% endcompress %}
-	{% endblock %}
-
-	{% block extra-stylesheets %}{% endblock %}
-	{% block extra-head %}{% endblock %}
+	{% block extra_css %}{% endblock %}
 </head>
 
-<body class="{% block body-class %}{% endblock %}" onload="{% block body-onload %}{% endblock %}">
+<body class="{% block body-class %}{% endblock %}">
 	<header id="header">
 		{% block header %}
 		<h1><a href="/">{{ project_name }}</a></h1>
@@ -31,10 +24,6 @@
 		</nav>
 		{% endblock %}
 	</header>
-
-	{% block messages %}
-		{% include "includes/messages/messages_list.html" %}
-	{% endblock %}
 
 	<div id="content">
 		{% block content %}{% endblock %}

@@ -1,20 +1,16 @@
 from {{ project_name }}.settings import *   # pylint: disable=W0614,W0401
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
-
-ADMINS = (
-    ('You', 'your@email'),
-)
-MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(VAR_ROOT, 'dev.db'),
+        'NAME': ':memory:',
     }
 }
 
+# or use postgres if this is what we're deploying to.
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -25,12 +21,12 @@ DATABASES = {
 #     }
 # }
 
-ROOT_URLCONF = '{{ project_name }}.conf.local.urls'
-
 INSTALLED_APPS += (
-    'django.contrib.admin',
-    'django.contrib.admindocs',
+    'django.contrib.admin'
     'django_nose',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# speeds up the tests
+PASSWORD_HASHERS = ('django.contrib.auth.hashers.CryptPasswordHasher', )

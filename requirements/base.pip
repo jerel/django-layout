@@ -4,7 +4,7 @@
 #
 #     pip install -r requirements.pip
 
-django==1.4
-south==0.7.3
+django
+south
+py-bcrypt
 pytz
-django-compressor==1.1.2
