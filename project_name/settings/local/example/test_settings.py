@@ -1,7 +1,7 @@
 """
 Local test settings
 """
-from {{ project_name }}.conf.test import *   # pylint: disable=W0614,W0401
+from {{ project_name }}.settings.test import *   # pylint: disable=W0614,W0401
 
 
 # DATABASES = {

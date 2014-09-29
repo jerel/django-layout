@@ -5,6 +5,6 @@
 #     pip install -r requirements.pip
 
 django
-south
 py-bcrypt
 pytz
+

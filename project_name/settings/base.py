@@ -28,6 +28,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.admin',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
@@ -61,7 +62,7 @@ elif ve_path and os.path.exists(os.path.join(ve_path, 'bin',
 else:
     # Set the variable root to the local configuration location (which is
     # ignored by the repository).
-    VAR_ROOT = os.path.join(PROJECT_DIR, 'conf', 'local')
+    VAR_ROOT = os.path.join(PROJECT_DIR, 'settings', 'local')
 
 if not os.path.exists(VAR_ROOT):
     os.mkdir(VAR_ROOT)
@@ -132,4 +133,6 @@ PASSWORD_HASHERS = (
 #============================================================================
 # Third party app settings
 #============================================================================
+
+
 

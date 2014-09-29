@@ -25,12 +25,7 @@ DATABASES = {
 #     }
 # }
 
-ROOT_URLCONF = '{{ project_name }}.conf.local.urls'
-
-INSTALLED_APPS += (
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    'django_nose',
-)
+ROOT_URLCONF = '{{ project_name }}.settings.local.urls'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
