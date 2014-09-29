@@ -32,7 +32,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'south',
+    '{{ project_name }}.apps.identity',
 
     # '{{ project_name }}.apps.',
 )
@@ -113,8 +113,10 @@ MIDDLEWARE_CLASSES += (
 # Auth / security
 #============================================================================
 
-AUTHENTICATION_BACKENDS += (
-)
+ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'identity.Identity'
+
+AUTHENTICATION_BACKENDS += ()
 
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.BCryptPasswordHasher',
