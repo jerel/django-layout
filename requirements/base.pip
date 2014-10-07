@@ -5,6 +5,9 @@
 #     pip install -r requirements.pip
 
 django
+djangorestframework
+rest-framework-ember
+django-rest-swagger
 py-bcrypt
 pytz
 
