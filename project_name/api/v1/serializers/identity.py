@@ -6,7 +6,7 @@ class IdentitySerializer(serializers.ModelSerializer):
     """
     Serialize identity models
     """
-    pk = serializers.SerializerMethodField('get_pk')
+    pk = serializers.SerializerMethodField()
 
     class Meta:
         model = Identity

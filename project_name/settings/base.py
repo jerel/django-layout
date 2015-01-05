@@ -139,6 +139,8 @@ PASSWORD_HASHERS = (
 # API settings
 #=============================================================================
 
+REST_EMBER_FORMAT_KEYS = True
+REST_EMBER_PLURALIZE_KEYS = True
 REST_FRAMEWORK = {
     'PAGINATE_BY': 10,
     'PAGINATE_BY_PARAM': 'page_size',
