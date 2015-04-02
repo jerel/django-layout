@@ -12,14 +12,14 @@ class IdentitySerializer(serializers.ModelSerializer):
         model = Identity
         fields = ('id', 'pk', 'first_name', 'last_name', 'date_joined',)
 
-    def validate_example(self, attrs, source):
+    # def validate_example(self, value) for a single field
+    def validate(self, data):
         """
-        Add custom validation for a field called "example" and throw
-        a proper error for the client side to catch and handle
+        Throw a proper error for the client side to catch and handle
         """
-        if not attrs['example']:
-            raise serializers.ValidationError('The example field is required')
-        return attrs
+        if data['age'] < data['date_joined']:
+            raise serializers.ValidationError('Age is an invalid value.')
+        return data
 
     def get_pk(self, obj):
         return obj.id
