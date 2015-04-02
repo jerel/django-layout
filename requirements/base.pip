@@ -11,4 +11,5 @@ django-rest-swagger
 py-bcrypt
 pytz
 Pillow
+psycopg2
 

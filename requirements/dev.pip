@@ -3,5 +3,4 @@
 Fabric
 docutils
 django-nose==1.2
-psycopg2
 
