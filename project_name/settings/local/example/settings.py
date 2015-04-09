@@ -10,20 +10,13 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(VAR_ROOT, 'dev.db'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{{ project_name }}',
+        'USER': '{{ project_name }}',
+        'PASSWORD': '{{ project_name }}',
+        'HOST': '127.0.0.1',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': '{{ project_name }}',
-#         'USER': '',
-#         'PASSWORD': '',
-#         'HOST': '',
-#     }
-# }
 
 ROOT_URLCONF = '{{ project_name }}.settings.local.urls'
 

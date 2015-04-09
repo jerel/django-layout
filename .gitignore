@@ -1,0 +1,6 @@
+
+{{ project_name }}/settings/local/*
+!{{ project_name }}/settings/local/example/
+{{ project_name }}.egg-info
+*.pyc
+
